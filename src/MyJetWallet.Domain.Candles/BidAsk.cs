@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using DotNetCoreDecorators;
 
 namespace MyJetWallet.Domain.Candles
 {
@@ -34,7 +35,7 @@ namespace MyJetWallet.Domain.Candles
             set => _unixTimeSec = value;
         }
 
-        public static DateTime TimeFromLong(long ts) => DateTimeOffset.FromUnixTimeSeconds(ts).UtcDateTime;
-        public static long TimeToLong(DateTime ts) => ((DateTimeOffset)ts).ToUnixTimeSeconds();
+        public static DateTime TimeFromLong(long ts) => ts.UnixTimeToDateTime();
+        public static long TimeToLong(DateTime ts) => ts.UnixTime();
     }
 }
