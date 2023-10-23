@@ -34,6 +34,9 @@ namespace MyJetWallet.Domain.Candles
             get => _unixTimeSec;
             set => _unixTimeSec = value;
         }
+        
+        [DataMember(Order = 6)]
+        public double Last { get; set; }
 
         public static DateTime TimeFromLong(long ts) => ts.UnixTimeToDateTime();
         public static long TimeToLong(DateTime ts) => ts.UnixTime();
