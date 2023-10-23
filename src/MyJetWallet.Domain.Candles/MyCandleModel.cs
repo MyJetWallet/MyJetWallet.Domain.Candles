@@ -6,6 +6,20 @@ namespace MyJetWallet.Domain.Candles;
 [DataContract]
 public class MyCandleModel
 {
+    public MyCandleModel(long dateTime, double open, double close, double high, double low, double volume)
+    {
+        DateTime = dateTime;
+        Open = open;
+        Close = close;
+        High = high;
+        Low = low;
+        Volume = volume;
+    }
+
+    public MyCandleModel()
+    {
+    }
+
     [DataMember(Order = 1)]
     public long DateTime { get; set; }
 

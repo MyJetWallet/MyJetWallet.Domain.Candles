@@ -6,6 +6,8 @@ namespace MyJetWallet.Domain.Candles
     [DataContract]
     public class BidAsk
     {
+        public const string TopicName = "spot-bidask";
+        
         private long _unixTimeSec;
 
         [DataMember(Order = 1)]
@@ -15,8 +17,8 @@ namespace MyJetWallet.Domain.Candles
         [DataMember(Order = 2)]
         public DateTime DateTime
         {
-            get => DateTimeOffset.FromUnixTimeSeconds(_unixTimeSec).UtcDateTime;
-            set => _unixTimeSec = ((DateTimeOffset)value).ToUnixTimeSeconds();
+            get => TimeFromLong(_unixTimeSec);
+            set => _unixTimeSec = TimeToLong(value);
         }
 
         [DataMember(Order = 3)]
@@ -31,5 +33,8 @@ namespace MyJetWallet.Domain.Candles
             get => _unixTimeSec;
             set => _unixTimeSec = value;
         }
+
+        public static DateTime TimeFromLong(long ts) => DateTimeOffset.FromUnixTimeSeconds(ts).UtcDateTime;
+        public static long TimeToLong(DateTime ts) => ((DateTimeOffset)ts).ToUnixTimeSeconds();
     }
 }
