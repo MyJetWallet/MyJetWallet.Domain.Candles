@@ -15,25 +15,7 @@ namespace TestApp
     {
         static async Task Main(string[] args)
         {
-            var now = DateTimeOffset.Now;
-            var bidAsk1 = new BidAsk()
-            {
-                Ask = 1.0,
-                Bid = 0.1,
-                Id = "USDBTC",
-                UnixTimeSec = now.ToUnixTimeSeconds()
-            };
-
-            var bidAsk2 = new BidAsk()
-            {
-                Ask = 1.0,
-                Bid = 0.1,
-                Id = "USDBTC",
-                DateTime = now.UtcDateTime,
-            };
-
-            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(bidAsk1));
-            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(bidAsk2));
+            
         }
     }
 
