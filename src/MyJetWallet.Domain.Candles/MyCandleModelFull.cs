@@ -5,6 +5,8 @@ namespace MyJetWallet.Domain.Candles;
 [DataContract]
 public class MyCandleModelFull
 {
+    public const string TopicName = "jetwallet-candle-migration";
+    
     [DataMember(Order = 1)] public string Symbol { get; set; }
     [DataMember(Order = 2)] public MyCandleType Type { get; set; }
     [DataMember(Order = 3)] public MyCandleModel Candle { get; set; }
